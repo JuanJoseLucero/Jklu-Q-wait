@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const authRoutes = require("./routes/auth");
 const storeroutes = require('./routes/store');
-
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
@@ -21,8 +21,7 @@ app.use((req, res, next) => {
 
 
 
-
-
+app.use(cors());
 app.use("/auth",authRoutes);
 app.use("/store",storeroutes);
 
@@ -38,10 +37,10 @@ app.use((error, req, res, next) => {
 
 mongoose
   .connect(
-    process.env.CONNECT_TO_DB
+    "mongodb://localhost:27017/nombre_de_tu_base_de_datos"
   )
   .then(result => {
-    app.listen(process.env.PORT);
+    app.listen("3005","0.0.0.0");
     console.log("connected");
   })
   .catch(err => console.log("error",err));

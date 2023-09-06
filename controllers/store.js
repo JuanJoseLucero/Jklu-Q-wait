@@ -5,9 +5,9 @@ const stores = require("../models/stores");
 const shop = require("../models/shops");
 var mongoose = require('mongoose');
 const users = require("../models/users");
-const accountSid = process.env.TWILIO_ACCOUNT_SID;
-const authToken = process.env.TWILIO_AUTH_TOKEN;
-const client = require('twilio')(accountSid, authToken);
+//const accountSid = process.env.TWILIO_ACCOUNT_SID||"";
+//const authToken = process.env.TWILIO_AUTH_TOKEN||"";
+//const client = require('twilio')(accountSid, authToken);
 const dotenv = require("dotenv");
 
 exports.checkstore = async (req , res ,next )=>{

@@ -50,7 +50,8 @@ exports.otp = async (req, res, next) => {
     }
     else
       await Otp.updateOne({ email: email }, { $set: { otp: otp } });
-    mail.sendEmail(email, otp);
+    //mail.sendEmail(email, otp);
+	  console.log(otp)
     return res.status(201).json({ message: 'Otp sent' });
   }
   catch (err) {
